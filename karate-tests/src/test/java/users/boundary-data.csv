@@ -1,0 +1,13 @@
+description,name,emailValue,role,age,expectedStatus,errorField
+name 1 char (below min),A,UNIQUE,tester,30,422,name
+name 2 chars (min),Al,UNIQUE,tester,30,201,
+name 50 chars (max),Abcdefghijabcdefghijabcdefghijabcdefghijabcdefghij,UNIQUE,tester,30,201,
+name 51 chars (above max),Abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijk,UNIQUE,tester,30,422,name
+role not in allowed list,Role Check,UNIQUE,intern,30,422,role
+role wrong case,Role Check,UNIQUE,Tester,30,422,role
+email without @,Email Check,not-an-email,tester,30,422,email
+email without domain dot,Email Check,someone@example,tester,30,422,email
+age min 18,Age Check,UNIQUE,tester,18,201,
+age max 65,Age Check,UNIQUE,tester,65,201,
+age 17,Age Check,UNIQUE,tester,17,422,age
+age 66,Age Check,UNIQUE,tester,66,422,age

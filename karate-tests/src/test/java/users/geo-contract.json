@@ -1,0 +1,6 @@
+{
+  "zip": "#regex \\d{5}",
+  "city": "#string",
+  "state": "#string",
+  "timezone": "#regex [A-Za-z]+/[A-Za-z_]+"
+}

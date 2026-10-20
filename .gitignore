@@ -1,0 +1,20 @@
+# Node.js dependencies - recreated with "npm install"
+node_modules/
+npm-debug.log*
+
+# Maven build output and Karate reports - recreated with "mvn test"
+target/
+
+# Local tool files created by VS Code's Java upgrade assistant
+.github/modernize/
+
+# Editor and OS clutter
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs and local environment files
+*.log
+.env

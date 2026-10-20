@@ -1,0 +1,13 @@
+{
+  "id": "#uuid",
+  "employeeCode": "#regex EMP-\\d{4}",
+  "name": "#string? _.length >= 2 && _.length <= 50",
+  "email": "#regex [^@\\s]+@[^@\\s]+\\.[^@\\s]+",
+  "role": "#? ['tester', 'developer', 'manager', 'admin'].indexOf(_) != -1",
+  "age": "#number? _ >= 18 && _ <= 65",
+  "active": "#boolean",
+  "address": "#? _ == null || karate.match(_, addressSchema).pass",
+  "skills": "#array",
+  "managerId": "##uuid",
+  "createdAt": "#regex \\d{4}-\\d{2}-\\d{2}T.+Z"
+}
