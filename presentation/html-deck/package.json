@@ -1,0 +1,13 @@
+{
+  "name": "hello-server-deck",
+  "version": "1.0.0",
+  "description": "Hello, Server: a journey from Telnet to microservices (HTML slide deck)",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

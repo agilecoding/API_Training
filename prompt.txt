@@ -1,0 +1,2 @@
+As an expert UI developer and a training portal creator, design a modern webUI that collectively shows multiple users training report dashboard  that mentions whcih track and completion % as progress. UI component should call an API to collect all statistics that proves lab excercises for karate automation were complete.
+UI should be built using nodejs and api using express, already we have user-service now we need training statistics for each user using this repo

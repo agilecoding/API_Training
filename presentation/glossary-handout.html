@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Protocols, HTTP and REST: one-page handout</title>
+<style>
+body{font:13px/1.4 Calibri,Arial,sans-serif;color:#1f2937;margin:18px auto;max-width:1000px}
+h1{font-size:22px;margin:0 0 4px;color:#0b1f3a}h2{font-size:15px;margin:14px 0 4px;color:#0f9d8f;border-bottom:2px solid #0f9d8f}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #cbd5e1;padding:3px 6px;text-align:left;vertical-align:top}th{background:#0b1f3a;color:#fff}
+code{font-family:Consolas,monospace;background:#eef2f7;padding:0 3px}@media print{body{margin:0}}
+</style></head><body>
+<h1>Hello, Server: A Journey from Telnet to Microservices (one-page handout)</h1>
+<div>Companion to the presentation. Print on one page.</div>
+<h2>Timeline</h2>
+<table><tr><th>Year</th><th>Milestone</th></tr>
+<tr><td>1969</td><td>ARPANET links 4 computers; packet switching</td></tr><tr><td>1971</td><td>Email, FTP; Telnet (1969) for remote login</td></tr>
+<tr><td>1983</td><td>ARPANET switches to TCP/IP (birth of the Internet); DNS follows</td></tr><tr><td>1991</td><td>World Wide Web: URL + HTTP + HTML</td></tr>
+<tr><td>1997</td><td>HTTP/1.1</td></tr><tr><td>1998-2000</td><td>SOAP; REST described by Roy Fielding (2000)</td></tr>
+<tr><td>2015</td><td>HTTP/2, gRPC and GraphQL open-sourced</td></tr><tr><td>2022</td><td>HTTP/3 (QUIC over UDP)</td></tr></table>
+<div class="grid"><div>
+<h2>Layers</h2><table><tr><th>Layer</th><th>Examples</th></tr><tr><td>Application</td><td>HTTP, FTP, SMTP, DNS</td></tr><tr><td>Transport</td><td>TCP (reliable), UDP (fast)</td></tr><tr><td>Internet</td><td>IP addresses, routing</td></tr><tr><td>Link</td><td>Wi-Fi, Ethernet</td></tr></table>
+<h2>HTTP methods</h2><table><tr><th>Method</th><th>Use</th><th>Idempotent</th></tr><tr><td>GET</td><td>Read</td><td>Yes</td></tr><tr><td>POST</td><td>Create</td><td>No</td></tr><tr><td>PUT</td><td>Replace</td><td>Yes</td></tr><tr><td>PATCH</td><td>Partial update</td><td>Not guaranteed</td></tr><tr><td>DELETE</td><td>Remove</td><td>Yes</td></tr></table>
+</div><div>
+<h2>Status codes</h2><table><tr><th>Code</th><th>Meaning</th></tr><tr><td>200 / 201 / 204</td><td>OK / Created / No content</td></tr><tr><td>301 / 304</td><td>Moved / Not modified</td></tr><tr><td>400</td><td>Bad request (invalid input)</td></tr><tr><td>401</td><td>Not authenticated (who are you?)</td></tr><tr><td>403</td><td>Authenticated but not allowed</td></tr><tr><td>404</td><td>Not found</td></tr><tr><td>409 / 422</td><td>Conflict / Unprocessable data</td></tr><tr><td>406 / 415</td><td>Not acceptable / Unsupported media type</td></tr><tr><td>429</td><td>Too many requests (rate limit; see Retry-After)</td></tr><tr><td>500 / 502 / 503 / 504</td><td>Server error / bad gateway / unavailable / timeout</td></tr></table>
+<h2>Choosing a style</h2><table><tr><td>REST</td><td>Public/web APIs (default)</td></tr><tr><td>SOAP</td><td>Legacy enterprise</td></tr><tr><td>GraphQL</td><td>Flexible client queries</td></tr><tr><td>gRPC</td><td>Fast internal service calls</td></tr></table>
+</div></div>
+<h2>Glossary</h2>
+<table><tr><td><b>API</b></td><td>Contract that lets programs talk to each other</td><td><b>Protocol</b></td><td>Agreed rules for exchanging messages</td></tr>
+<tr><td><b>Endpoint</b></td><td>URL + method that performs an action</td><td><b>Resource</b></td><td>A thing exposed by an API (user, order)</td></tr>
+<tr><td><b>Payload/Body</b></td><td>Data in a request or response</td><td><b>Header</b></td><td>Metadata (type, auth, caching)</td></tr>
+<tr><td><b>Stateless</b></td><td>Server keeps no memory between requests</td><td><b>Idempotent</b></td><td>Repeating gives same end result</td></tr>
+<tr><td><b>JSON</b></td><td>Lightweight text data format</td><td><b>OpenAPI</b></td><td>Standard description of a REST API</td></tr>
+<tr><td><b>API gateway</b></td><td>Single front door to many services</td><td><b>Contract test</b></td><td>Checks consumer and provider agree on message shape</td></tr>
+<tr><td><b>JWT</b></td><td>Signed token: header.payload.signature (readable, not encrypted)</td><td><b>OAuth 2.0</b></td><td>Framework for delegated access and issuing tokens</td></tr><tr><td><b>Webhook</b></td><td>Server calls your URL when an event happens</td><td><b>WebSocket</b></td><td>Persistent two-way connection (starts with HTTP Upgrade, 101)</td></tr><tr><td><b>Pagination</b></td><td>Returning long lists in pages (?page=2&size=20)</td><td><b>Rate limit</b></td><td>Cap on calls; exceeding it returns 429</td></tr><tr><td><b>Message broker</b></td><td>Kafka or RabbitMQ: carries asynchronous events</td><td><b>QUIC</b></td><td>UDP-based transport under HTTP/3</td></tr><tr><td><b>Microservice</b></td><td>Small independent service owning one capability and its data</td><td><b>Mock/Stub</b></td><td>Fake dependency used in tests</td></tr></table>
+<h2>Tester checklist for any REST call</h2>
+<div>Status code correct? Headers (Content-Type)? Body fields and types? Missing/invalid/expired token (401/403)? Bad input (400/422)? Repeat the call (idempotency)? Non-existent id (404)? Timeout or dependency down (5xx)?</div>
+</body></html>
